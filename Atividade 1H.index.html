@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junior Rangel_A História e Evolução da Informática</title>
+  
+  <style>
+    /* Configurações Globais e Estilo Cyberpunk/Neon */
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #151c2e;
+      --accent-cyan: #00f2fe;
+      --accent-pink: #4facfe;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      padding-bottom: 40px;
+    }
+
+    /* Cabeçalho */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, white 0%, red 100%);
+      border-bottom: 2px solid var(--accent-cyan);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* Filtros Interativos */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* Layout em Grid Responsivo */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Estilo dos Cartões */
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-cyan);
+    }
+
+    .card-tag {
+      align-self: flex-end;
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-top: 10px;
+      color: #fff;
+    }
+
+    .card .era {
+      font-size: 0.85rem;
+      color: var(--accent-pink);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>A Evolução da Informática</h1>
+      <p>Uma jornada pelos pioneiros, inovadores e revoluções tecnológicas que moldaram o nosso mundo.</p>
+    </div>
+  </header>
+
+  <div class="filter-container">
+    <button class="filter-btn active" onclick="filterCards(event, 'all')">Todos</button>
+    <button class="filter-btn" onclick="filterCards(event, 'pioneiros')">Pioneiros & Algoritmos</button>
+    <button class="filter-btn" onclick="filterCards(event, 'hardware')">Computadores & Hardware</button>
+    <button class="filter-btn" onclick="filterCards(event, 'software')">Software & Web</button>
+  </div>
+
+  <main class="timeline-grid" id="timeline">
+
+    <article class="card hardware">
+      <div class="card-tag">Antiguidade</div>
+      <h2>O Ábaco</h2>
+      <p class="era">c. 2400 a.C.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Abacus_6.jpg/640px-Abacus_6.jpg" alt="Ábaco tradicional">
+      <p>Considerado um dos primeiros instrumentos mecânicos de cálculo da humanidade, essencial para o desenvolvimento da aritmética antiga.</p>
+    </article>
+
+    <article class="card pioneiros">
+      <div class="card-tag">Pioneira</div>
+      <h2>Ada Lovelace</h2>
+      <p class="era">1815 – 1852</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg" alt="Ada Lovelace">
+      <p>Matemática inglesa que escreveu o <strong>primeiro algoritmo</strong> a ser processado por uma máquina. É reconhecida como a primeira programadora da história.</p>
+    </article>
+
+    <article class="card pioneiros">
+      <div class="card-tag">Pai da Computação</div>
+      <h2>Alan Turing</h2>
+      <p class="era">1912 – 1954</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg" alt="Alan Turing">
+      <p>Matemático britânico fundamental para a decodificação da máquina Enigma na 2ª Guerra Mundial. Concebeu a <strong>Máquina de Turing</strong>, modelo teórico da computação moderna.</p>
+    </article>
+
+    <article class="card hardware">
+      <div class="card-tag">Hardware</div>
+      <h2>ENIAC</h2>
+      <p class="era">1945</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Eniac.jpg" alt="Computador ENIAC">
+      <p>Um dos primeiros computadores digitais eletrônicos de grande escala. Ocupava salas inteiras e utilizava milhares de válvulas a vácuo para realizar cálculos complexos.</p>
+    </article>
+
+    <article class="card pioneiros">
+      <div class="card-tag">Pioneiras</div>
+      <h2>As Mulheres do ENIAC</h2>
+      <p class="era">Década de 1940</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Eniac-women-programmers.jpg" alt="Programadoras do ENIAC">
+      <p>Um grupo de seis mulheres (como Jean Bartik e Frances Spence) que programaram o ENIAC sem linguagens modernas, ajustando cabos e chaves manualmente.</p>
+    </article>
+
+    <article class="card software">
+      <div class="card-tag">Software</div>
+      <h2>Grace Hopper</h2>
+      <p class="era">1906 – 1992</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg" alt="Grace Hopper">
+      <p>Almirante e cientista da computação norte-americana. Criou o <strong>primeiro compilador</strong> para uma linguagem de programação e ajudou a desenvolver o <strong>COBOL</strong>.</p>
+    </article>
+
+    <article class="card software">
+      <div class="card-tag">Engenharia de Software</div>
+      <h2>Margaret Hamilton</h2>
+      <p class="era">1936 – Presente</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Margaret_Hamilton_-_1989.jpg" alt="Margaret Hamilton">
+      <p>Diretora da Divisão de Engenharia de Software do laboratório do MIT que desenvolveu o programa de voo para as missões <strong>Apollo</strong> da NASA.</p>
+    </article>
+
+    <article class="card software">
+      <div class="card-tag">Redes & Web</div>
+      <h2>Tim Berners-Lee</h2>
+      <p class="era">1955 – Presente</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg" alt="Tim Berners-Lee">
+      <p>Cientista da computação britânico responsável pela criação da <strong>World Wide Web (WWW)</strong> em 1989, além dos protocolos HTML, HTTP e das URLs.</p>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>Projeto Educacional - História e Evolução da Informática</p>
+  </footer>
+
+  <script>
+    function filterCards(event, category) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Atualiza o estado ativo dos botões
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Exibe ou oculta os cards baseando-se na categoria
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.style.display = 'flex';
+        } else {
+          if (card.classList.contains(category)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
