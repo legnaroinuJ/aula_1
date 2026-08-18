@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junior Rangel_A História e Evolução da Informática</title>
+  <title>A História e Evolução da Informática</title>
   
   <style>
-    /* Configurações Globais e Estilo Cyberpunk/Neon */
+    /* Configurações Globais e Paleta Roxo & Branco */
     :root {
-      --bg-color: #0b0f19;
-      --card-bg: #151c2e;
-      --accent-cyan: #00f2fe;
-      --accent-pink: #4facfe;
-      --text-color: #e2e8f0;
-      --text-muted: #94a3b8;
+      --bg-color: #0d0614;
+      --card-bg: #180e29;
+      --accent-purple: #8a2be2;
+      --accent-purple-light: #b366ff;
+      --text-color: #ffffff;
+      --text-muted: #e0d5f5;
     }
 
     * {
@@ -28,27 +28,33 @@
       color: var(--text-color);
       line-height: 1.5;
       padding-bottom: 40px;
+      overflow-x: hidden;
     }
 
-    /* Cabeçalho */
+    /* Cabeçalho com Gradiente Roxo e Branco */
     .hero {
       text-align: center;
       padding: 60px 20px;
-      background: linear-gradient(135deg, white 0%, red 100%);
-      border-bottom: 2px solid var(--accent-cyan);
+      background: linear-gradient(135deg, #180e29 0%, #4c1d95 50%, #ffffff 100%);
+      border-bottom: 3px solid var(--accent-purple-light);
+      box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
     }
 
     .hero h1 {
-      font-size: 2.8rem;
-      background: linear-gradient(90deg, #00f2fe, #4facfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 3rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px #000000, -1px -1px 4px #000000;
       margin-bottom: 10px;
+      font-weight: 800;
     }
 
     .hero p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
+      color: #ffffff;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 6px #000000, -1px -1px 3px #000000;
+      font-weight: 600;
     }
 
     /* Filtros Interativos */
@@ -62,18 +68,22 @@
 
     .filter-btn {
       background: var(--card-bg);
-      color: var(--text-color);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 20px;
+      color: #ffffff;
+      border: 1px solid var(--accent-purple-light);
+      padding: 10px 22px;
       border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000000;
     }
 
     .filter-btn:hover, .filter-btn.active {
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
-      color: #000;
-      font-weight: bold;
+      background: linear-gradient(90deg, #8a2be2 0%, #ffffff 100%);
+      color: #000000;
+      text-shadow: none;
+      box-shadow: 0 0 12px rgba(179, 102, 255, 0.6);
     }
 
     /* Layout em Grid Responsivo */
@@ -86,73 +96,149 @@
       padding: 0 20px;
     }
 
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
+    }
+
     /* Estilo dos Cartões */
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
       padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(179, 102, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      height: 100%;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      border-color: var(--accent-cyan);
+      border-color: var(--accent-purple-light);
+      box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
     }
 
     .card-tag {
       align-self: flex-end;
-      background: rgba(0, 242, 254, 0.1);
-      color: var(--accent-cyan);
+      background: rgba(138, 43, 226, 0.25);
+      color: #ffffff;
       font-size: 0.75rem;
       padding: 4px 10px;
       border-radius: 12px;
       text-transform: uppercase;
       font-weight: bold;
+      border: 1px solid var(--accent-purple-light);
+      text-shadow: 1px 1px 2px #000000;
     }
 
     .card h2 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       margin-top: 10px;
-      color: #fff;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px #000000;
     }
 
     .card .era {
-      font-size: 0.85rem;
-      color: var(--accent-pink);
+      font-size: 0.9rem;
+      color: #d8b4fe;
       margin-bottom: 15px;
-      font-weight: 600;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px #000000;
+    }
+
+    .card-img-container {
+      width: 100%;
+      height: 220px;
+      background-color: #0a0410;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid var(--accent-purple-light);
+      overflow: hidden;
     }
 
     .card img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: block;
     }
 
     .card p {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: #ffffff;
+      text-shadow: 1px 1px 3px #000000;
+    }
+
+    /* Overlay da Matrix */
+    #matrix-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(13, 6, 20, 0.92);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #matrix-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .matrix-msg {
+      position: relative;
+      z-index: 10000;
+      color: #b366ff;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-shadow: 0 0 15px #8a2be2, 0 0 25px #00ffcc;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: pulse 1s infinite alternate;
+      text-align: center;
+      padding: 20px;
+      background: rgba(10, 4, 16, 0.8);
+      border: 2px solid #8a2be2;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.8; }
+      to { transform: scale(1.05); opacity: 1; }
     }
 
     /* Rodapé */
     footer {
       text-align: center;
       margin-top: 50px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: #ffffff;
+      font-size: 0.95rem;
+      text-shadow: 1px 1px 4px #000000;
     }
   </style>
 </head>
 <body>
+
+  <!-- Elemento de Surpresa / Tela Matrix -->
+  <div id="matrix-overlay">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="matrix-msg">ACESSANDO ARQUIVO HISTÓRICO...</div>
+  </div>
 
   <header class="hero">
     <div class="hero-content">
@@ -170,69 +256,113 @@
 
   <main class="timeline-grid" id="timeline">
 
-    <article class="card hardware">
-      <div class="card-tag">Antiguidade</div>
-      <h2>O Ábaco</h2>
-      <p class="era">c. 2400 a.C.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Abacus_6.jpg/640px-Abacus_6.jpg" alt="Ábaco tradicional">
-      <p>Considerado um dos primeiros instrumentos mecânicos de cálculo da humanidade, essencial para o desenvolvimento da aritmética antiga.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/%C3%81baco" onclick="triggerMatrixEffect(event, this.href)" class="card-link hardware">
+      <article class="card">
+        <div class="card-tag">Antiguidade</div>
+        <h2>O Ábaco</h2>
+        <p class="era">c. 2400 a.C.</p>
+        <div class="card-img-container">
+          <img src="https://static.todamateria.com.br/upload/ab/ac/abacoescolar-cke.jpg" alt="Ábaco tradicional">
+        </div>
+        <p>Considerado um dos primeiros instrumentos mecânicos de cálculo da humanidade, essencial para o desenvolvimento da aritmética antiga.</p>
+      </article>
+    </a>
 
-    <article class="card pioneiros">
-      <div class="card-tag">Pioneira</div>
-      <h2>Ada Lovelace</h2>
-      <p class="era">1815 – 1852</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg" alt="Ada Lovelace">
-      <p>Matemática inglesa que escreveu o <strong>primeiro algoritmo</strong> a ser processado por uma máquina. É reconhecida como a primeira programadora da história.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/Pascalina" onclick="triggerMatrixEffect(event, this.href)" class="card-link hardware">
+      <article class="card">
+        <div class="card-tag">Mecânica</div>
+        <h2>Pascalina</h2>
+        <p class="era">1642</p>
+        <div class="card-img-container">
+          <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80" alt="Máquina Pascalina de Blaise Pascal">
+        </div>
+        <p>Criada por Blaise Pascal, foi uma das primeiras calculadoras mecânicas capazes de realizar operações de soma e subtração diretamente.</p>
+      </article>
+    </a>
 
-    <article class="card pioneiros">
-      <div class="card-tag">Pai da Computação</div>
-      <h2>Alan Turing</h2>
-      <p class="era">1912 – 1954</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg" alt="Alan Turing">
-      <p>Matemático britânico fundamental para a decodificação da máquina Enigma na 2ª Guerra Mundial. Concebeu a <strong>Máquina de Turing</strong>, modelo teórico da computação moderna.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/Ada_Lovelace" onclick="triggerMatrixEffect(event, this.href)" class="card-link pioneiros">
+      <article class="card">
+        <div class="card-tag">Pioneira</div>
+        <h2>Ada Lovelace</h2>
+        <p class="era">1815 – 1852</p>
+        <div class="card-img-container">
+          <img src="https://www.ufmg.br/espacodoconhecimento/wp-content/uploads/2025/10/capa-Ada-Lovelace.png" alt="Ada Lovelace">
+        </div>
+        <p>Matemática inglesa que escreveu o <strong>primeiro algoritmo</strong> a ser processado por uma máquina. É reconhecida como a primeira programadora da história.</p>
+      </article>
+    </a>
 
-    <article class="card hardware">
-      <div class="card-tag">Hardware</div>
-      <h2>ENIAC</h2>
-      <p class="era">1945</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Eniac.jpg" alt="Computador ENIAC">
-      <p>Um dos primeiros computadores digitais eletrônicos de grande escala. Ocupava salas inteiras e utilizava milhares de válvulas a vácuo para realizar cálculos complexos.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/Alan_Turing" onclick="triggerMatrixEffect(event, this.href)" class="card-link pioneiros">
+      <article class="card">
+        <div class="card-tag">Pai da Computação</div>
+        <h2>Alan Turing</h2>
+        <p class="era">1912 – 1954</p>
+        <div class="card-img-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg" alt="Alan Turing">
+        </div>
+        <p>Matemático britânico fundamental para a decodificação da máquina Enigma na 2ª Guerra Mundial. Concebeu a <strong>Máquina de Turing</strong>, modelo teórico da computação moderna.</p>
+      </article>
+    </a>
 
-    <article class="card pioneiros">
-      <div class="card-tag">Pioneiras</div>
-      <h2>As Mulheres do ENIAC</h2>
-      <p class="era">Década de 1940</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Eniac-women-programmers.jpg" alt="Programadoras do ENIAC">
-      <p>Um grupo de seis mulheres (como Jean Bartik e Frances Spence) que programaram o ENIAC sem linguagens modernas, ajustando cabos e chaves manualmente.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/ENIAC" onclick="triggerMatrixEffect(event, this.href)" class="card-link hardware">
+      <article class="card">
+        <div class="card-tag">Hardware</div>
+        <h2>ENIAC</h2>
+        <p class="era">1945</p>
+        <div class="card-img-container">
+          <img src="https://www.engineering.upenn.edu/wp-content/uploads/2025/03/ENIAC1.jpg" alt="Computador ENIAC">
+        </div>
+        <p>Um dos primeiros computadores digitais eletrônicos de grande escala. Ocupava salas inteiras e utilizava milhares de válvulas a vácuo para realizar cálculos complexos.</p>
+      </article>
+    </a>
 
-    <article class="card software">
-      <div class="card-tag">Software</div>
-      <h2>Grace Hopper</h2>
-      <p class="era">1906 – 1992</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg" alt="Grace Hopper">
-      <p>Almirante e cientista da computação norte-americana. Criou o <strong>primeiro compilador</strong> para uma linguagem de programação e ajudou a desenvolver o <strong>COBOL</strong>.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/Mulheres_do_ENIAC" onclick="triggerMatrixEffect(event, this.href)" class="card-link pioneiros">
+      <article class="card">
+        <div class="card-tag">Pioneiras</div>
+        <h2>As Mulheres do ENIAC</h2>
+        <p class="era">Década de 1940</p>
+        <div class="card-img-container">
+          <img src="https://spectrum.ieee.org/media-library/two-women-programmers-preparing-a-computer-to-be-demonstrated.jpg?id=32130363&width=1200&height=812" alt="Programadoras do ENIAC">
+        </div>
+        <p>Um grupo de seis mulheres (como Jean Bartik e Frances Spence) que programaram o ENIAC sem linguagens modernas, ajustando cabos e chaves manualmente.</p>
+      </article>
+    </a>
 
-    <article class="card software">
-      <div class="card-tag">Engenharia de Software</div>
-      <h2>Margaret Hamilton</h2>
-      <p class="era">1936 – Presente</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Margaret_Hamilton_-_1989.jpg" alt="Margaret Hamilton">
-      <p>Diretora da Divisão de Engenharia de Software do laboratório do MIT que desenvolveu o programa de voo para as missões <strong>Apollo</strong> da NASA.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/Grace_Hopper" onclick="triggerMatrixEffect(event, this.href)" class="card-link software">
+      <article class="card">
+        <div class="card-tag">Software</div>
+        <h2>Grace Hopper</h2>
+        <p class="era">1906 – 1992</p>
+        <div class="card-img-container">
+          <img src="https://cdn.britannica.com/94/149294-050-1BDE70C7/Grace-Hopper-1984.jpg?w=300" alt="Grace Hopper">
+        </div>
+        <p>Almirante e cientista da computação norte-americana. Criou o <strong>primeiro compilador</strong> para uma linguagem de programação e ajudou a desenvolver o <strong>COBOL</strong>.</p>
+      </article>
+    </a>
 
-    <article class="card software">
-      <div class="card-tag">Redes & Web</div>
-      <h2>Tim Berners-Lee</h2>
-      <p class="era">1955 – Presente</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg" alt="Tim Berners-Lee">
-      <p>Cientista da computação britânico responsável pela criação da <strong>World Wide Web (WWW)</strong> em 1989, além dos protocolos HTML, HTTP e das URLs.</p>
-    </article>
+    <a href="https://pt.wikipedia.org/wiki/Margaret_Hamilton_(cientista_da_computa%C3%A7%C3%A3o)" onclick="triggerMatrixEffect(event, this.href)" class="card-link software">
+      <article class="card">
+        <div class="card-tag">Engenharia de Software</div>
+        <h2>Margaret Hamilton</h2>
+        <p class="era">1936 – Presente</p>
+        <div class="card-img-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Hamilton_Medal_of_Freedom_from_Obama.jpg/960px-Hamilton_Medal_of_Freedom_from_Obama.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Margaret Hamilton">
+        </div>
+        <p>Diretora da Divisão de Engenharia de Software do laboratório do MIT que desenvolveu o programa de voo para as missões <strong>Apollo</strong> da NASA.</p>
+      </article>
+    </a>
+
+    <a href="https://pt.wikipedia.org/wiki/Tim_Berners-Lee" onclick="triggerMatrixEffect(event, this.href)" class="card-link software">
+      <article class="card">
+        <div class="card-tag">Redes & Web</div>
+        <h2>Tim Berners-Lee</h2>
+        <p class="era">1955 – Presente</p>
+        <div class="card-img-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Tim_Berners-Lee_CP.jpg/500px-Tim_Berners-Lee_CP.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20090129212106" alt="Tim Berners-Lee">
+        </div>
+        <p>Cientista da computação britânico responsável pela criação da <strong>World Wide Web (WWW)</strong> em 1989, além dos protocolos HTML, HTTP e das URLs.</p>
+      </article>
+    </a>
 
   </main>
 
@@ -241,26 +371,86 @@
   </footer>
 
   <script>
+    /* Lógica do Filtro de Categoria */
     function filterCards(event, category) {
-      const cards = document.querySelectorAll('.card');
+      const cardLinks = document.querySelectorAll('.card-link');
       const buttons = document.querySelectorAll('.filter-btn');
 
-      // Atualiza o estado ativo dos botões
       buttons.forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
 
-      // Exibe ou oculta os cards baseando-se na categoria
-      cards.forEach(card => {
+      cardLinks.forEach(link => {
         if (category === 'all') {
-          card.style.display = 'flex';
+          link.style.display = 'block';
         } else {
-          if (card.classList.contains(category)) {
-            card.style.display = 'flex';
+          if (link.classList.contains(category)) {
+            link.style.display = 'block';
           } else {
-            card.style.display = 'none';
+            link.style.display = 'none';
           }
         }
       });
+    }
+
+    /* Efeito Matrix & Transição Futurista (Versão mais lenta e legível) */
+    let animationInterval;
+
+    function triggerMatrixEffect(event, targetUrl) {
+      event.preventDefault(); // Interrompe a navegação imediata
+
+      const overlay = document.getElementById('matrix-overlay');
+      const canvas = document.getElementById('matrix-canvas');
+      const ctx = canvas.getContext('2d');
+
+      overlay.style.display = 'flex';
+
+      // Ajusta dinamicamente a dimensão da tela
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+
+      // Caracteres estilo Matrix
+      const matrixChars = "01100101010JUNIORRANGEL1101dJUNIORRANGEL01013344JUNIORRANGELROINUJLEGNARJUNIORRANGEL1ROINUJLEGNAR1JUNIORRANGEL01ROINUJLEGNAR101101";
+      const fontSize = 18; // Tamanho do texto aumentado para facilitar a leitura
+      let columns = Math.floor(canvas.width / fontSize);
+      let drops = Array(columns).fill(1);
+
+      function drawMatrix() {
+        // Opacidade ajustada para 0.25 (reduz o rastro e deixa os números limpos)
+        ctx.fillStyle = "rgba(13, 6, 20, 0.25)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = "bold " + fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+          
+          if (Math.random() > 0.85) {
+            ctx.fillStyle = "#00ffcc";
+          } else {
+            ctx.fillStyle = "#b366ff";
+          }
+
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      // Intervalo definido para 90ms (desce bem mais devagar)
+      animationInterval = setInterval(drawMatrix, 90);
+
+      // Permanece por 3.5 segundos na tela antes de abrir o link
+      setTimeout(() => {
+        clearInterval(animationInterval);
+        overlay.style.display = 'none';
+        window.open(targetUrl, '_blank');
+      }, 3500);
     }
   </script>
 </body>
