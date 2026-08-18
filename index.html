@@ -166,6 +166,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top; /* Ajustado para manter o foco na parte superior (cabeça/rosto) */
       display: block;
     }
 
@@ -248,10 +249,10 @@
   </header>
 
   <div class="filter-container">
-    <button class="filter-btn active" onclick="filterCards(event, 'all')">Todos</button>
-    <button class="filter-btn" onclick="filterCards(event, 'pioneiros')">Pioneiros & Algoritmos</button>
-    <button class="filter-btn" onclick="filterCards(event, 'hardware')">Computadores & Hardware</button>
-    <button class="filter-btn" onclick="filterCards(event, 'software')">Software & Web</button>
+    <button type="button" class="filter-btn active" onclick="filterCards(event, 'all')">Todos</button>
+    <button type="button" class="filter-btn" onclick="filterCards(event, 'pioneiros')">Pioneiros & Algoritmos</button>
+    <button type="button" class="filter-btn" onclick="filterCards(event, 'hardware')">Computadores & Hardware</button>
+    <button type="button" class="filter-btn" onclick="filterCards(event, 'software')">Software & Web</button>
   </div>
 
   <main class="timeline-grid" id="timeline">
@@ -262,7 +263,7 @@
         <h2>O Ábaco</h2>
         <p class="era">c. 2400 a.C.</p>
         <div class="card-img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/RomanAbacusRecon.jpg/250px-RomanAbacusRecon.jpg?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="Ábaco tradicional">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/RomanAbacusRecon.jpg/250px-RomanAbacusRecon.jpg" alt="Ábaco tradicional">
         </div>
         <p>Considerado um dos primeiros instrumentos mecânicos de cálculo da humanidade, essencial para o desenvolvimento da aritmética antiga.</p>
       </article>
@@ -286,7 +287,7 @@
         <h2>Ada Lovelace</h2>
         <p class="era">1815 – 1852</p>
         <div class="card-img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png/250px-Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="Ada Lovelace">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png/250px-Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png" alt="Ada Lovelace">
         </div>
         <p>Matemática inglesa que escreveu o <strong>primeiro algoritmo</strong> a ser processado por uma máquina. É reconhecida como a primeira programadora da história.</p>
       </article>
@@ -346,7 +347,7 @@
         <h2>Margaret Hamilton</h2>
         <p class="era">1936 – Presente</p>
         <div class="card-img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Hamilton_Medal_of_Freedom_from_Obama.jpg/960px-Hamilton_Medal_of_Freedom_from_Obama.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Margaret Hamilton">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Hamilton_Medal_of_Freedom_from_Obama.jpg/960px-Hamilton_Medal_of_Freedom_from_Obama.jpg" alt="Margaret Hamilton">
         </div>
         <p>Diretora da Divisão de Engenharia de Software do laboratório do MIT que desenvolveu o programa de voo para as missões <strong>Apollo</strong> da NASA.</p>
       </article>
@@ -358,7 +359,7 @@
         <h2>Tim Berners-Lee</h2>
         <p class="era">1955 – Presente</p>
         <div class="card-img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Tim_Berners-Lee_CP.jpg/500px-Tim_Berners-Lee_CP.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20090129212106" alt="Tim Berners-Lee">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Tim_Berners-Lee_CP.jpg/500px-Tim_Berners-Lee_CP.jpg" alt="Tim Berners-Lee">
         </div>
         <p>Cientista da computação britânico responsável pela criação da <strong>World Wide Web (WWW)</strong> em 1989, além dos protocolos HTML, HTTP e das URLs.</p>
       </article>
@@ -380,19 +381,15 @@
       event.target.classList.add('active');
 
       cardLinks.forEach(link => {
-        if (category === 'all') {
+        if (category === 'all' || link.classList.contains(category)) {
           link.style.display = 'block';
         } else {
-          if (link.classList.contains(category)) {
-            link.style.display = 'block';
-          } else {
-            link.style.display = 'none';
-          }
+          link.style.display = 'none';
         }
       });
     }
 
-    /* Efeito Matrix & Transição Futurista (Versão mais lenta e legível) */
+    /* Efeito Matrix & Transição Futurista */
     let animationInterval;
 
     function triggerMatrixEffect(event, targetUrl) {
@@ -404,21 +401,23 @@
 
       overlay.style.display = 'flex';
 
-      // Ajusta dinamicamente a dimensão da tela
+      const fontSize = 18;
+      let columns = 0;
+      let drops = [];
+
       function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        columns = Math.floor(canvas.width / fontSize);
+        drops = Array(columns).fill(1);
       }
+      
       resizeCanvas();
 
       // Caracteres estilo Matrix
       const matrixChars = "01100101010JUNIORRANGEL1101dJUNIORRANGEL01013344JUNIORRANGELROINUJLEGNARJUNIORRANGEL1ROINUJLEGNAR1JUNIORRANGEL01ROINUJLEGNAR101101";
-      const fontSize = 18; // Tamanho do texto aumentado para facilitar a leitura
-      let columns = Math.floor(canvas.width / fontSize);
-      let drops = Array(columns).fill(1);
 
       function drawMatrix() {
-        // Opacidade ajustada para 0.25 (reduz o rastro e deixa os números limpos)
         ctx.fillStyle = "rgba(13, 6, 20, 0.25)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -442,10 +441,8 @@
         }
       }
 
-      // Intervalo definido para 90ms (desce bem mais devagar)
       animationInterval = setInterval(drawMatrix, 90);
 
-      // Permanece por 3.5 segundos na tela antes de abrir o link
       setTimeout(() => {
         clearInterval(animationInterval);
         overlay.style.display = 'none';
