@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A História e Evolução da Informática</title>
- 
+  
   <style>
     /* Configurações Globais e Paleta Roxo & Branco */
     :root {
@@ -419,7 +419,7 @@
 
     function toggleMatrixPause() {
       const hint = document.getElementById('matrix-hint');
-     
+      
       if (!isPaused) {
         // Pausa a animação
         clearInterval(animationInterval);
@@ -433,7 +433,7 @@
         isPaused = false;
         hint.textContent = "[ Clique em qualquer lugar para pausar/continuar ]";
         hint.style.color = "#00ffcc";
-       
+        
         animationInterval = setInterval(drawMatrix, 90);
         startTime = Date.now();
         redirectTimeout = setTimeout(finishMatrixTransition, remainingTime);
@@ -469,7 +469,7 @@
         columns = Math.floor(canvas.width / fontSize);
         drops = Array(columns).fill(1);
       }
-     
+      
       resizeCanvas();
 
       // Caracteres estilo Matrix
@@ -483,7 +483,7 @@
 
         for (let i = 0; i < drops.length; i++) {
           const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
-         
+          
           if (Math.random() > 0.85) {
             ctx.fillStyle = "#00ffcc";
           } else {
