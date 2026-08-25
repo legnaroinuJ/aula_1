@@ -379,7 +379,7 @@
         <h2>Tim Berners-Lee</h2>
         <p class="era">1955 – Presente</p>
         <div class="card-img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Tim_Berners-Lee_CP.jpg/500px-Tim_Berners-Lee_CP.jpg" alt="Tim Berners-Lee" class="img-tim-berners">
+          <img src="https://pt.wikipedia.org/wiki/Ficheiro:Sir_Tim_Berners-Lee_(cropped).jpg">
         </div>
         <p>Cientista da computação britânico responsável pela criação da <strong>World Wide Web (WWW)</strong> em 1989, além dos protocolos HTML, HTTP e das URLs.</p>
       </article>
@@ -426,12 +426,12 @@
         clearTimeout(redirectTimeout);
         remainingTime -= (Date.now() - startTime);
         isPaused = true;
-        hint.textContent = "[ PAUSADO - Clique novamente para continuar ]";
+        hint.textContent = "[ STOP - Clique novamente para Seguir... ]";
         hint.style.color = "#ff0077";
       } else {
         // Retoma a animação
         isPaused = false;
-        hint.textContent = "[ Clique em qualquer lugar para pausar/continuar ]";
+        hint.textContent = "[ Click em Qualquer Lugar da Pág e Veja o Garoto de Programa ]";
         hint.style.color = "#00ffcc";
         
         animationInterval = setInterval(drawMatrix, 90);
@@ -473,7 +473,7 @@
       resizeCanvas();
 
       // Caracteres estilo Matrix
-      const matrixChars = "00JUNIORRANGEL11ROINUJLEGNAR01dJUNIORRANGEL0ROINUJLEGNARJUNIORRANGEL1ROINUJLEGNAR1JUNIORRANGEL01ROINUJLEGNAR101101";
+      const matrixChars = "00JUNIORRANGEL11ROINUJLEGNAR01JUNIORRANGEL00ROINUJLEGNAR1010JUNIORRANGEL1010ROINUJLEGNAR1010JUNIORRANGEL01ROINUJLEGNAR101";
 
       drawMatrixFunc = function() {
         ctx.fillStyle = "rgba(13, 6, 20, 0.25)";
